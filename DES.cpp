@@ -59,20 +59,20 @@ string hexToBin(const string& hexString)
 
 #include <string>
 
-std::string binToHex(const std::string& binaryString)
+string binToHex(const std::string& binaryString)
 {
     static const char* const lut[] = {"0", "1", "2", "3",
                                       "4", "5", "6", "7",
                                       "8", "9", "A", "B",
                                       "C", "D", "E", "F"};
 
-    std::string hexString;
+    string hexString;
     hexString.reserve((binaryString.length() + 3) / 4);
 
-    for (std::size_t i = 0; i < binaryString.length(); i += 4)
+    for (size_t i = 0; i < binaryString.length(); i += 4)
     {
         int value = 0;
-        for (std::size_t j = 0; j < 4 && i + j < binaryString.length(); ++j)
+        for (size_t j = 0; j < 4 && i + j < binaryString.length(); ++j)
         {
             value = (value << 1) + (binaryString[i + j] - '0');
         }
